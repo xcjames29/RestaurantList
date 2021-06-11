@@ -158,28 +158,28 @@ export default function RestaurantList() {
         console.log("filter", filter);
         let toFilterGenre = genreTofilter ? genreTofilter : genreFilter;
         console.log(toFilterGenre);
-        if (filter === "" && toFilterGenre === "All") {
+        if (filterRef.current.value === "" && toFilterGenre === "All") {
             setIsFiltered(false);
             return
         }
         let newList = [];
         setIsFiltered(true);
-        if (filter === "") {
+        if (filterRef.current.value === "") {
             restaurants.forEach((e) => {
                 let genres = e.genre.split(",");
                 if (genres.includes(toFilterGenre)) newList.push(e)
             })
         }
-        else if (filter !== "" && toFilterGenre === "All") {
+        else if (filterRef.current.value !== "" && toFilterGenre === "All") {
             restaurants.forEach((e) => {
-                if (e.name === filter || e.city === filter || e.state === filter || e.telephone === filter) newList.push(e)
+                if (e.name === filterRef.current.value || e.city === filterRef.current.value || e.state === filterRef.current.value || e.telephone === filterRef.current.value) newList.push(e)
             })
         }
         else {
             restaurants.forEach((e) => {
                 let genres = e.genre.split(",");
                 if (genres.includes(genreFilter)) {
-                    if (e.name === filter || e.city === filter || e.state === filter || e.telephone === filter) newList.push(e)
+                    if (e.name === filterRef.current.value || e.city === filterRef.current.value || e.state === filterRef.current.value || e.telephone === filterRef.current.value) newList.push(e)
                 }
             })
         }
@@ -253,7 +253,7 @@ export default function RestaurantList() {
                                 } else return <> </>
                             })
                         }
-                        {isFiltered && filteredList.length === 0 ? <Trow> <Tdata/><Tdata/> <Tdata>  <h1>No Result Found</h1> </Tdata></Trow> : <></>}
+                        {isFiltered && filteredList.length === 0 ? <Trow> <Tdata/><Tdata/> <Tdata>  <h1>No Result Found</h1> </Tdata><Tdata/><Tdata/></Trow> : <></>}
                     </Tbody>
                 </Table>
             </TableContainer>
