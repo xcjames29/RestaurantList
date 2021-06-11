@@ -107,6 +107,8 @@ const Options = styled.option``;
 
 const LabelText = styled.label`
     font-size: 16px;
+    font-weight: bold;
+    background-color: white;
 `;
 
 
@@ -197,7 +199,8 @@ export default function RestaurantList() {
     return (
         <Container>
             <FilterContainer>
-                <InputFilter ref={filterRef}
+                <LabelText htmlFor="filter">Filter: </LabelText>
+                <InputFilter name="filter" ref={filterRef}
                     onChange={() => { setFilter(filterRef.current.value); if(filterRef.current.value === ""){ console.log("clear");clearFilter()} }}
                     onKeyUp={(e) => { if (e.key === "Enter") filterList() }} />
                 <FilterButton onClick={() => filterList()}>Search</FilterButton>
@@ -263,7 +266,7 @@ export default function RestaurantList() {
                 {!isFiltered ?
                     pagination !== maxPage &&
                     <PaginationBtns onClick={() => { if (pagination < maxPage) setPagination(pagination + 1) }}>Next</PaginationBtns>
-                    : filteredPagination !== filteredMax &&
+                    : filteredPagination < filteredMax &&
                     <PaginationBtns onClick={() => { if (filteredPagination < filteredMax) setFilteredPagination(filteredPagination + 1) }}>Next</PaginationBtns>
                 }
             </PaginationWrapper>
