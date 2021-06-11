@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
-
+import imgBg from "./img/bg.jpg"
 const Container = styled.div`
     height: 100vh;
     width: 100vw;
@@ -12,7 +12,7 @@ const Container = styled.div`
     gap: 20px;
     align-items: center;
     justify-content: center;
-    background: url('./img/bg.jpg');
+    background-image: url(${imgBg});
     background-repeat: repeat;
 `;
 
@@ -44,6 +44,7 @@ const Thead = styled.thead`
 const Tbody = styled.tbody``;
 
 const Trow = styled.tr`
+    background-color: white;
     &:nth-child(even){
         background-color: #c0c0c0;
     }
@@ -69,7 +70,11 @@ const PaginationBtns = styled.button`
     background-color: transparent;
     border: none;
     padding:10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: white;
     color: blue;
+    cursor: pointer;
     &:hover{
         color: red;
     }
