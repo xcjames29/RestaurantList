@@ -36,7 +36,7 @@ const PaginationWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     width: 70vw;
-    gap: 20px
+    gap: 20px;
 `;
 
 const Thead = styled.thead`
@@ -137,7 +137,6 @@ export default function RestaurantList() {
                 genreList.forEach(genre => {
                     option.add(genre)
                 })
-
             })
             setGenreOptions([...option]);
             setRestaurants(data.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1
