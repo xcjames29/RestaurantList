@@ -36,6 +36,7 @@ const PaginationWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     width: 70vw;
+    gap: 20px
 `;
 
 const Thead = styled.thead`
@@ -67,8 +68,8 @@ const Tdata = styled.td`
 `;
 
 const PaginationBtns = styled.button`
-    background-color: transparent;
-    border: none;
+    border: 2px solid blue;
+    border-radius: 10px;
     padding:10px;
     font-size: 18px;
     font-weight: bold;
@@ -77,6 +78,7 @@ const PaginationBtns = styled.button`
     cursor: pointer;
     &:hover{
         color: red;
+        border-color: red;
     }
 `;
 
